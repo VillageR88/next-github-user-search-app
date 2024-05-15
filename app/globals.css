@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+}
+
+.themeHover .regularInput {
+  @apply transition;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  @apply shadow-[0_0_0_30px_white_inset] dark:shadow-[0_0_0_30px_#1c1c1c_inset];
+  -webkit-text-fill-color: black;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-border-radius: 6px;
+  border-radius: 6px;
+  -webkit-text-size-adjust: none;
+}
+:is(.dark) input:-webkit-autofill {
+  -webkit-text-fill-color: white;
+}
+.custom-list li {
+  list-style-type: none;
+  position: relative;
+}
+
+.custom-list li::before {
+  content: '•';
+  scale: 1;
+  position: absolute;
+  left: -1.9em;
+}
+
+.orangeLi li::before {
+  color: #e46643;
+}
+
+.custom-listNumber li {
+  font-weight: 700;
+  left: 2.52em;
+  position: relative;
+  counter-increment: listNumber;
+}
+
+.custom-listNumber li::before {
+  content: counter(listNumber) '.';
+  position: absolute;
+  left: -2em;
+}
+
+pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.group1Parent:hover .group1Child {
+  @apply underline;
+}
