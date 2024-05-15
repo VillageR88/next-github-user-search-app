@@ -1,5 +1,5 @@
 {
-  "name": "next-in-browser-markdown-editor",
+  "name": "next-github-user-search-app",
   "version": "0.1.0",
   "scripts": {
     "dev": "next dev -p 36969",

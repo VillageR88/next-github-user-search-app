@@ -12,6 +12,7 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "cSpell.words": [
+    "devfinder",
     "fontsource",
     "headlessui",
     "heroicons",

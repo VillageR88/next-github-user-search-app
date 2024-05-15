@@ -9,12 +9,7 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        //sans: ['var(--font-sans)'],
-        //mono: ['var(--font-mono)'],
-        roboto: ['var(--font-roboto)'],
-        robotoMono: ['var(--font-roboto-mono)'],
-        robotoSlab: ['var(--font-roboto-slab)'],
-        instrumentSans: ['var(--font-instrument-sans)'],
+        spaceMono: ['var(--font-space-mono)'],
       },
       colors: {
         gray1: '#121212',
@@ -22,7 +17,7 @@ const config: Config = {
     },
   },
   plugins: [],
-  darkMode: 'class', // Add this line
+  darkMode: 'class',
 };
 
 export default config;

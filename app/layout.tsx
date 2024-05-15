@@ -1,41 +1,17 @@
-/* eslint-disable @next/next/no-page-custom-font */
-
 import './globals.css';
 import type { Metadata } from 'next';
-import DataProvider from '@/app/_providers/DataContext';
-import MainContextProvider from '@/app/_providers/MainContext';
-import SidebarContextProvider from '@/app/_providers/SidebarContext';
-import { Roboto, Roboto_Mono, Roboto_Slab, Instrument_Sans } from 'next/font/google';
+import { Space_Mono } from 'next/font/google';
 
-const roboto_mono = Roboto_Mono({
+const spaceMono = Space_Mono({
   subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-roboto-mono',
-});
-
-const roboto = Roboto({
-  display: 'swap',
-  subsets: ['latin'],
-  variable: '--font-roboto',
-  weight: ['100', '300', '400', '500', '700', '900'],
-});
-
-const robotoSlab = Roboto_Slab({
-  display: 'swap',
-  subsets: ['latin'],
-  variable: '--font-roboto-slab',
-});
-
-const instrumentSans = Instrument_Sans({
-  display: 'swap',
-  subsets: ['latin'],
-  variable: '--font-instrument-sans',
+  weight: ['400', '700'],
+  variable: '--font-space-mono',
 });
 
 export const metadata: Metadata = {
-  title: 'MARKDOWN',
-  description: 'In-browser markdown editor application',
-  //applicationName: 'My App',
+  title: 'Github User Search App',
+  description: 'Github User Search Application',
+  applicationName: 'Github User Search App',
 } as const;
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -46,17 +22,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"></link>
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"></link>
 
-        <meta property="og:image" content="/Markdown.png" />
+        <meta property="og:image" content={undefined} />
       </head>
-      <body
-        className={`${roboto.variable} ${roboto_mono.variable} ${robotoSlab.variable} ${instrumentSans.variable} bg-[#fcfcfc] dark:bg-[#1D1F22]`}
-      >
-        <DataProvider>
-          <MainContextProvider>
-            <SidebarContextProvider>{children}</SidebarContextProvider>
-          </MainContextProvider>
-        </DataProvider>
-      </body>
+      <body className={`${spaceMono.variable} bg-[#F2F2F2] transition-colors dark:bg-[#141D2F]`}>{children}</body>
     </html>
   );
 }

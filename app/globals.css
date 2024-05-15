@@ -14,63 +14,6 @@
   }
 }
 
-.button1 {
-  @apply h-[44px] w-[50px] items-center justify-center gap-[2px] rounded-[6px] border border-[#636262] bg-gradient-to-b text-[16px] font-extrabold tracking-[1px] transition disabled:opacity-25 dark:border-[1px] dark:fill-white dark:text-white md:w-[110px];
-}
-
-.button1:not([disabled]):hover {
-  @apply border border-[darkorange] fill-[darkorange] text-[darkorange] transition dark:border dark:border-[orange] dark:fill-[orange] dark:text-[orange];
-}
-
-.button1:disabled:hover {
-  @apply cursor-pointer;
-}
-.button2 {
-  @apply flex h-[40px] w-[40px] items-center justify-center overflow-hidden rounded-[6px] bg-[#E46643] fill-white text-[15px] font-normal text-white opacity-40 transition md:w-[152px] md:min-w-[110px];
-}
-.button2Frame {
-  @apply flex items-center justify-center overflow-hidden rounded-[6px] bg-[#E46643] fill-white text-[15px] font-normal text-white opacity-100 transition hover:bg-[#F39765] md:min-w-[110px];
-}
-.button2:not([disabled]) {
-  @apply flex h-[40px] w-[40px] items-center justify-center overflow-hidden rounded-[6px] bg-[#E46643] fill-white text-[15px] font-normal text-white opacity-100 transition hover:bg-[#F39765] md:w-[152px] md:min-w-[110px];
-}
-
-.buttonSidebar {
-  @apply flex h-[40px] w-full items-center justify-center overflow-hidden rounded-[6px] bg-[#E46643] fill-white text-[15px] font-normal text-white transition hover:bg-[#F39765];
-}
-
-.button2Inner {
-  @apply flex size-[40px] items-center justify-center gap-[7px] md:size-full;
-}
-
-.button2Submit {
-  @apply flex size-full items-center justify-center gap-[2px];
-}
-
-.button3 {
-  @apply flex h-[44px] min-w-full items-center justify-center overflow-hidden rounded-[6px] bg-[#E46643] fill-white font-instrumentSans text-[16px] font-bold tracking-[1px] text-white transition hover:bg-[#F39765] md:min-w-[110px];
-}
-
-h1 {
-  @apply font-instrumentSans text-2xl font-semibold transition dark:text-white sm:text-3xl;
-}
-
-h2 {
-  @apply text-lg font-semibold transition dark:text-white sm:text-2xl;
-}
-
-h3 {
-  @apply text-lg font-semibold transition dark:text-white;
-}
-
-p {
-  @apply text-[14px] transition dark:text-white md:text-[16px];
-}
-
-label {
-  @apply text-[14px] font-semibold transition dark:text-white md:text-[16px];
-}
-
 .regularInput {
   @apply h-[45px] rounded-[6px] border border-[rgba(0,0,0,0.2)] p-4 outline-none dark:border-[#1C1C1C] dark:bg-[#1C1C1C] dark:text-white;
 }
