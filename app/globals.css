@@ -14,10 +14,6 @@
   }
 }
 
-.regularInput {
-  @apply h-[45px] rounded-[6px] border border-[rgba(0,0,0,0.2)] p-4 outline-none dark:border-[#1C1C1C] dark:bg-[#1C1C1C] dark:text-white;
-}
-
 .themeHover .regularInput {
   @apply transition;
 }
@@ -69,4 +65,8 @@ input:-webkit-autofill:active {
 pre {
   white-space: pre-wrap;
   word-wrap: break-word;
+}
+
+.group1Parrent:not(:disabled):hover .group1Child {
+  @apply underline;
 }
