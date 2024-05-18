@@ -11,11 +11,11 @@ import BottomRows from './BottomRows';
 export default function Main() {
   const notAvailable = 'Not Available';
   const [state, action] = useFormState<tGithubJSON1, FormData>(createInvoice, octocat);
-
+  //console.log(state);
   return (
     <form action={action} className="flex size-full max-w-[730px] flex-col gap-[24px]">
       <search className="flex h-[69px] w-full items-center justify-between rounded-[15px] bg-[#FFFFFF] pl-[32px] pr-[10px] transition-colors dark:bg-[#1E2A47]">
-        <div className="flex w-full items-center gap-[24px] pr-4">
+        <div className="flex size-full items-center pr-4">
           <svg height="24" width="25" xmlns="http://www.w3.org/2000/svg">
             <path
               d="M10.609 0c5.85 0 10.608 4.746 10.608 10.58 0 2.609-.952 5-2.527 6.847l5.112 5.087a.87.87 0 01-1.227 1.233l-5.118-5.093a10.58 10.58 0 01-6.848 2.505C4.759 21.16 0 16.413 0 10.58 0 4.747 4.76 0 10.609 0zm0 1.74c-4.891 0-8.87 3.965-8.87 8.84 0 4.874 3.979 8.84 8.87 8.84a8.855 8.855 0 006.213-2.537l.04-.047a.881.881 0 01.058-.053 8.786 8.786 0 002.558-6.203c0-4.875-3.979-8.84-8.87-8.84z"
@@ -25,7 +25,7 @@ export default function Main() {
           <input
             name="search"
             id="search"
-            className="w-full min-w-[254px] bg-transparent text-[18px] leading-[25px] text-[#222731] caret-[#0079FF] outline-none transition-colors placeholder:text-[#4B6A9B] dark:text-[#FFFFFF] dark:placeholder:text-[#FFFFFF] "
+            className="size-full min-w-[254px] bg-transparent pl-[24px] text-[18px] leading-[25px] text-[#222731] caret-[#0079FF] outline-none transition-colors placeholder:text-[#4B6A9B] dark:text-[#FFFFFF] dark:placeholder:text-[#FFFFFF] "
             placeholder="Search GitHub username…"
             type="text"
             minLength={1}
@@ -41,30 +41,39 @@ export default function Main() {
           </button>
         </div>
       </search>
-      <div className="flex h-[419px] w-full gap-[41px] rounded-[15px] bg-[#FFFFFF] transition-colors dark:bg-[#1E2A47] md:px-[48px] md:pt-[44px]">
-        <Image priority className="h-fit rounded-full" height={117} width={117} alt="avatar" src={state.avatar_url} />
+      <div className="flex min-h-[419px] w-full gap-[41px] rounded-[15px] bg-[#FFFFFF] transition-colors dark:bg-[#1E2A47] md:px-[48px] md:pt-[44px]">
+        <Image
+          priority
+          className="size-[117px] rounded-full"
+          height={117}
+          width={117}
+          alt="avatar"
+          src={state.avatar_url}
+        />
         <div className="flex w-full flex-col">
-          <div className="flex justify-between">
-            <div className="flex flex-col">
-              <span className="text-[26px] font-bold text-[#2B3442] transition-colors dark:text-[#FFFFFF]">
-                {state.name ? state.name : state.login}
-              </span>
-              <span className="mt-[2px] text-[16px] text-[#0079FF]">{'@'.concat(state.login)}</span>
-              <span className="mt-[20px] whitespace-pre-wrap text-[#4B6A9B] transition-colors dark:text-[#FFFFFF]">
-                {state.bio ? state.bio : 'This profile has no bio'}
+          <div className="flex w-full flex-col">
+            <div className="flex justify-between">
+              <div className="flex flex-col">
+                <span className="text-[26px] font-bold text-[#2B3442] transition-colors dark:text-[#FFFFFF]">
+                  {state.name ? state.name : state.login}
+                </span>
+                <span className="mt-[2px] text-[16px] text-[#0079FF]">{'@'.concat(state.login)}</span>
+              </div>
+              <span className="text-[15px] leading-10 text-[#697C9A] transition-colors dark:text-[#FFFFFF]">
+                {'Joined '.concat(
+                  new Date(state.created_at).toLocaleDateString('en-gb', {
+                    month: 'short',
+                    day: 'numeric',
+                    year: 'numeric',
+                  }),
+                )}
               </span>
             </div>
-            <span className="text-[15px] leading-10 text-[#697C9A] transition-colors dark:text-[#FFFFFF]">
-              {'Joined '.concat(
-                new Date(state.created_at).toLocaleDateString('en-gb', {
-                  month: 'short',
-                  day: 'numeric',
-                  year: 'numeric',
-                }),
-              )}
+            <span className="mt-[20px] whitespace-pre-wrap text-[#4B6A9B] transition-colors dark:text-[#FFFFFF]">
+              {state.bio ? state.bio : 'This profile has no bio'}
             </span>
           </div>
-          <div className="mt-[32px] flex h-[85px] justify-between rounded-[10px] bg-[#F6F8FF] pl-[26px] pr-[102px] pt-[15px] transition-colors dark:bg-[#141D2F]">
+          <div className="mt-[32px] flex h-[85px] w-[480px] justify-between rounded-[10px] bg-[#F6F8FF] pl-[26px] pr-[102px] pt-[15px] transition-colors dark:bg-[#141D2F]">
             {[
               { title: 'Repos', description: state.public_repos },
               {
@@ -84,7 +93,7 @@ export default function Main() {
               </div>
             ))}
           </div>
-          <div className="mt-[37px] grid grid-cols-2 gap-x-[62px] gap-y-[19px]">
+          <div className="grid grid-cols-2 gap-x-[62px] gap-y-[19px] pb-[48px] pt-[37px]">
             <BottomRows
               disabled={state.location === null || state.location === ''}
               Svg={LocationSVG}
