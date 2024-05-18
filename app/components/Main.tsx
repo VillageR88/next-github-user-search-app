@@ -3,81 +3,14 @@
 import { useFormState } from 'react-dom';
 import { createInvoice } from '../_lib/functionsServer';
 import Image from 'next/image';
-import type { tGithubJSON } from '@/app/_lib/types';
+import type { tGithubJSON1 } from '@/app/_lib/types';
 import { LocationSVG, TwitterSvg, WebsiteSvg, CompanySvg } from '@/app/components/SvgComponents';
+import { octocat } from '../_lib/octocat';
+import BottomRows from './BottomRows';
 
 export default function Main() {
   const notAvailable = 'Not Available';
-  const [state, action] = useFormState<tGithubJSON, FormData>(createInvoice, {
-    login: 'octocat',
-    id: 583231,
-    node_id: 'MDQ6VXNlcjU4MzIzMQ==',
-    avatar_url: 'https://avatars.githubusercontent.com/u/583231?v=4',
-    gravatar_id: '',
-    url: 'https://api.github.com/users/octocat',
-    html_url: 'https://github.com/octocat',
-    followers_url: 'https://api.github.com/users/octocat/followers',
-    following_url: 'https://api.github.com/users/octocat/following{/other_user}',
-    gists_url: 'https://api.github.com/users/octocat/gists{/gist_id}',
-    starred_url: 'https://api.github.com/users/octocat/starred{/owner}{/repo}',
-    subscriptions_url: 'https://api.github.com/users/octocat/subscriptions',
-    organizations_url: 'https://api.github.com/users/octocat/orgs',
-    repos_url: 'https://api.github.com/users/octocat/repos',
-    events_url: 'https://api.github.com/users/octocat/events{/privacy}',
-    received_events_url: 'https://api.github.com/users/octocat/received_events',
-    type: 'User',
-    site_admin: false,
-    name: 'The Octocat',
-    company: '@github',
-    blog: 'https://github.blog',
-    location: 'San Francisco',
-    email: null,
-    hireable: null,
-    bio: null,
-    twitter_username: null,
-    public_repos: 8,
-    public_gists: 8,
-    followers: 13500,
-    following: 9,
-    created_at: '2011-01-25T18:44:36Z',
-    updated_at: '2024-04-22T11:20:10Z',
-  });
-  console.log(state);
-
-  const BottomRows = ({
-    description,
-    Svg,
-    disabled,
-    title,
-  }: {
-    description: string;
-    Svg: () => JSX.Element;
-    disabled: boolean;
-    title: string;
-  }) =>
-    disabled ? (
-      <div className="flex cursor-default gap-[16px] fill-[#4b6a9b] text-left text-[#4b6a9b] opacity-50 transition-colors dark:fill-[#FFFFFF] dark:text-[#FFFFFF]">
-        <Svg />
-        <span className="max-w-full break-words">{description}</span>
-      </div>
-    ) : (
-      <a
-        href={
-          title === 'Website'
-            ? description
-            : title === 'Twitter'
-              ? `https://twitter.com/${description}`
-              : title === 'Location'
-                ? `https://www.google.com/maps/place/${description}}`
-                : ` 
-                https://www.github.com/${description.slice(1)}`
-        }
-        className="group1Parent flex gap-[16px] fill-[#4b6a9b] text-left text-[#4b6a9b] transition-colors dark:fill-[#FFFFFF] dark:text-[#FFFFFF]"
-      >
-        <Svg />
-        <span className="group1Child max-w-full break-words">{description}</span>
-      </a>
-    );
+  const [state, action] = useFormState<tGithubJSON1, FormData>(createInvoice, octocat);
 
   return (
     <form action={action} className="flex size-full max-w-[730px] flex-col gap-[24px]">
@@ -98,12 +31,15 @@ export default function Main() {
             minLength={1}
           />
         </div>
-        <button
-          className="h-[50px] min-w-[106px] rounded-[10px] bg-[#0079FF] text-[16px] font-bold text-[#FFFFFF]"
-          type="submit"
-        >
-          Search
-        </button>
+        <div className="flex min-w-fit items-center gap-[24px]">
+          <span className={`${state.error ? '' : 'hidden'} min-w-fit font-bold text-[#F74646]`}>No results</span>
+          <button
+            className="h-[50px] min-w-[106px] rounded-[10px] bg-[#0079FF] text-[16px] font-bold text-[#FFFFFF] transition-colors hover:bg-[#60ABFF]"
+            type="submit"
+          >
+            Search
+          </button>
+        </div>
       </search>
       <div className="flex h-[419px] w-full gap-[41px] rounded-[15px] bg-[#FFFFFF] transition-colors dark:bg-[#1E2A47] md:px-[48px] md:pt-[44px]">
         <Image priority className="h-fit rounded-full" height={117} width={117} alt="avatar" src={state.avatar_url} />
@@ -111,7 +47,7 @@ export default function Main() {
           <div className="flex justify-between">
             <div className="flex flex-col">
               <span className="text-[26px] font-bold text-[#2B3442] transition-colors dark:text-[#FFFFFF]">
-                {state.name}
+                {state.name ? state.name : state.login}
               </span>
               <span className="mt-[2px] text-[16px] text-[#0079FF]">{'@'.concat(state.login)}</span>
               <span className="mt-[20px] whitespace-pre-wrap text-[#4B6A9B] transition-colors dark:text-[#FFFFFF]">

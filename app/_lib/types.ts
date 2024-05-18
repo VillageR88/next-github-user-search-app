@@ -1,4 +1,4 @@
-export interface tGithubJSON {
+export interface tGithubJSON1 {
   login: string;
   id: string | number;
   node_id: string;
@@ -17,7 +17,7 @@ export interface tGithubJSON {
   received_events_url: string;
   type: string;
   site_admin: boolean;
-  name: string;
+  name: string | null;
   company: string | null;
   blog: string | null;
   location: string | null;
@@ -31,4 +31,10 @@ export interface tGithubJSON {
   following: number;
   created_at: string;
   updated_at: string;
+  error: boolean;
+}
+
+export interface tGithubJSON2 {
+  message: string;
+  documentation_url: string;
 }
