@@ -48,20 +48,36 @@ export default function Main() {
     description,
     Svg,
     disabled,
+    title,
   }: {
     description: string;
     Svg: () => JSX.Element;
     disabled: boolean;
-  }) => (
-    <button
-      type="button"
-      disabled={disabled}
-      className="group1Parrent flex gap-[16px] fill-[#4b6a9b] text-left text-[#4b6a9b] transition-colors disabled:opacity-50 dark:fill-[#FFFFFF] dark:text-[#FFFFFF]"
-    >
-      <Svg />
-      <span className="group1Child max-w-full break-words">{description}</span>
-    </button>
-  );
+    title: string;
+  }) =>
+    disabled ? (
+      <div className="flex cursor-default gap-[16px] fill-[#4b6a9b] text-left text-[#4b6a9b] opacity-50 transition-colors dark:fill-[#FFFFFF] dark:text-[#FFFFFF]">
+        <Svg />
+        <span className="max-w-full break-words">{description}</span>
+      </div>
+    ) : (
+      <a
+        href={
+          title === 'Website'
+            ? description
+            : title === 'Twitter'
+              ? `https://twitter.com/${description}`
+              : title === 'Location'
+                ? `https://www.google.com/maps/place/${description}}`
+                : ` 
+                https://www.github.com/${description.slice(1)}`
+        }
+        className="group1Parent flex gap-[16px] fill-[#4b6a9b] text-left text-[#4b6a9b] transition-colors dark:fill-[#FFFFFF] dark:text-[#FFFFFF]"
+      >
+        <Svg />
+        <span className="group1Child max-w-full break-words">{description}</span>
+      </a>
+    );
 
   return (
     <form action={action} className="flex size-full max-w-[730px] flex-col gap-[24px]">
@@ -134,24 +150,28 @@ export default function Main() {
           </div>
           <div className="mt-[37px] grid grid-cols-2 gap-x-[62px] gap-y-[19px]">
             <BottomRows
-              disabled={state.location === null}
+              disabled={state.location === null || state.location === ''}
               Svg={LocationSVG}
               description={state.location ? state.location : notAvailable}
+              title="Location"
             />
             <BottomRows
-              disabled={state.twitter_username === null}
+              disabled={state.twitter_username === null || state.twitter_username === ''}
               Svg={TwitterSvg}
               description={state.twitter_username ? state.twitter_username : notAvailable}
+              title="Twitter"
             />
             <BottomRows
-              disabled={state.blog === null}
+              disabled={state.blog === null || state.blog === ''}
               Svg={WebsiteSvg}
               description={state.blog ? state.blog : notAvailable}
+              title="Website"
             />
             <BottomRows
-              disabled={state.company === null}
+              disabled={state.company === null || state.company === ''}
               Svg={CompanySvg}
               description={state.company ? state.company : notAvailable}
+              title="Company"
             />
           </div>
         </div>

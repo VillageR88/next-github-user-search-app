@@ -67,6 +67,6 @@ pre {
   word-wrap: break-word;
 }
 
-.group1Parrent:not(:disabled):hover .group1Child {
+.group1Parent:hover .group1Child {
   @apply underline;
 }
