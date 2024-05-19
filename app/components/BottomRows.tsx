@@ -23,7 +23,9 @@ const BottomRows = ({
     <a
       href={
         title === 'Website'
-          ? description
+          ? description.startsWith('http')
+            ? description
+            : `https://${description}`
           : title === 'Twitter'
             ? `https://twitter.com/${description}`
             : title === 'Location'
