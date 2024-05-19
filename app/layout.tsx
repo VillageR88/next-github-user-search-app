@@ -1,6 +1,7 @@
 import './globals.css';
 import type { Metadata } from 'next';
 import { Space_Mono } from 'next/font/google';
+import DataProvider from '@/app/_providers/DataContext';
 
 const spaceMono = Space_Mono({
   subsets: ['latin'],
@@ -21,10 +22,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"></link>
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"></link>
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"></link>
-
         <meta property="og:image" content={undefined} />
       </head>
-      <body className={`${spaceMono.variable} bg-[#F6F8FF] transition-colors dark:bg-[#141D2F]`}>{children}</body>
+      <body className={`${spaceMono.variable} bg-[#F6F8FF] transition-colors dark:bg-[#141D2F]`}>
+        <DataProvider>{children}</DataProvider>
+      </body>
     </html>
   );
 }

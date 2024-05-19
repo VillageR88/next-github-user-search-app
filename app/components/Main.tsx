@@ -1,6 +1,6 @@
 'use client';
 
-import { useFormState } from 'react-dom';
+import { useFormState, useFormStatus } from 'react-dom';
 import { createInvoice } from '../_lib/functionsServer';
 import type { tGithubJSON1 } from '@/app/_lib/types';
 import { octocat } from '../_lib/octocat';
@@ -11,10 +11,28 @@ import Avatar from './Avatar';
 import Bio from './Bio';
 import Image from 'next/image';
 import searchIcon from '@/public/assets/icon-search.svg';
+import { useContext, useEffect } from 'react';
+import { DataContext } from '@/app/_providers/DataContext';
 
 export default function Main() {
   const [state, action] = useFormState<tGithubJSON1, FormData>(createInvoice, octocat);
-  //console.log(state);
+  const { setPending } = useContext(DataContext);
+
+  const SubmitButton = () => {
+    const { pending } = useFormStatus();
+    useEffect(() => {
+      if (pending) setPending(true);
+      else setPending(false);
+    }, [pending]);
+    return (
+      <button
+        className="h-[50px] min-w-[84px] rounded-[10px] bg-[#0079FF] text-[14px] font-bold text-[#FFFFFF] transition-colors hover:bg-[#60ABFF] sm:min-w-[106px] sm:text-[16px]"
+        type="submit"
+      >
+        Search
+      </button>
+    );
+  };
   return (
     <form action={action} className="flex size-full max-w-[730px] flex-col gap-[24px]">
       <search className="flex h-[69px] w-full items-center justify-between rounded-[15px] bg-[#FFFFFF] pl-[32px] pr-[10px] shadow-[0_15px_15px_0px_rgba(70,96,187,10%)] transition dark:bg-[#1E2A47] dark:shadow-transparent">
@@ -42,12 +60,7 @@ export default function Main() {
           >
             No results
           </span>
-          <button
-            className="h-[50px] min-w-[84px] rounded-[10px] bg-[#0079FF] text-[14px] font-bold text-[#FFFFFF] transition-colors hover:bg-[#60ABFF] sm:min-w-[106px] sm:text-[16px]"
-            type="submit"
-          >
-            Search
-          </button>
+          <SubmitButton />
         </div>
       </search>
       <div className="flex min-h-[419px] w-full gap-[37px] rounded-[15px] bg-[#FFFFFF] px-[24px] pb-[48px] pt-[32px] shadow-[0_15px_15px_0px_rgba(70,96,187,10%)] transition dark:bg-[#1E2A47] dark:shadow-transparent sm:p-[40px] md:px-[48px] md:py-[44px]">
