@@ -37,7 +37,11 @@ export default function Main() {
           />
         </div>
         <div className="flex min-w-fit items-center gap-[24px]">
-          <span className={`${state.error ? '' : 'hidden'} min-w-fit font-bold text-[#F74646]`}>No results</span>
+          <span
+            className={`${state.error ? '' : 'hidden'} min-w-fit text-[14px] font-bold text-[#F74646] sm:text-[15px]`}
+          >
+            No results
+          </span>
           <button
             className="h-[50px] min-w-[84px] rounded-[10px] bg-[#0079FF] text-[14px] font-bold text-[#FFFFFF] transition-colors hover:bg-[#60ABFF] sm:min-w-[106px] sm:text-[16px]"
             type="submit"
