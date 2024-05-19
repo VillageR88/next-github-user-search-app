@@ -42,7 +42,7 @@ export default function Main() {
           </button>
         </div>
       </search>
-      <div className="flex min-h-[419px] w-full gap-[41px] rounded-[15px] bg-[#FFFFFF] transition-colors dark:bg-[#1E2A47] md:px-[48px] md:pt-[44px]">
+      <div className="flex min-h-[419px] w-full gap-[37px] rounded-[15px] bg-[#FFFFFF] transition-colors dark:bg-[#1E2A47] md:px-[48px] md:pt-[44px]">
         <Image
           priority
           className="size-[117px] rounded-full"
