@@ -15,7 +15,7 @@ export default function Main() {
   //console.log(state);
   return (
     <form action={action} className="flex size-full max-w-[730px] flex-col gap-[24px]">
-      <search className="flex h-[69px] w-full items-center justify-between rounded-[15px] bg-[#FFFFFF] pl-[32px] pr-[10px] transition-colors dark:bg-[#1E2A47]">
+      <search className="flex h-[69px] w-full items-center justify-between rounded-[15px] bg-[#FFFFFF] pl-[32px] pr-[10px] shadow-[0_15px_15px_0px_rgba(70,96,187,10%)] transition dark:bg-[#1E2A47] dark:shadow-transparent">
         <div className="flex size-full items-center pr-4">
           <svg height="24" width="25" xmlns="http://www.w3.org/2000/svg">
             <path
@@ -43,7 +43,7 @@ export default function Main() {
           </button>
         </div>
       </search>
-      <div className="flex min-h-[419px] w-full gap-[37px] rounded-[15px] bg-[#FFFFFF] p-[40px] transition-colors dark:bg-[#1E2A47] md:px-[48px] md:py-[44px]">
+      <div className="flex min-h-[419px] w-full gap-[37px] rounded-[15px] bg-[#FFFFFF] p-[40px] shadow-[0_15px_15px_0px_rgba(70,96,187,10%)] transition dark:bg-[#1E2A47] dark:shadow-transparent md:px-[48px] md:py-[44px]">
         <Avatar state={state} additionalClass="hidden md:block" />
         <div className="flex w-full flex-col">
           <div className="flex w-full flex-col">
@@ -60,3 +60,4 @@ export default function Main() {
     </form>
   );
 }
+//4660BB

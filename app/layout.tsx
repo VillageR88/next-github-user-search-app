@@ -24,7 +24,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
         <meta property="og:image" content={undefined} />
       </head>
-      <body className={`${spaceMono.variable} bg-[#F2F2F2] transition-colors dark:bg-[#141D2F]`}>{children}</body>
+      <body className={`${spaceMono.variable} bg-[#F6F8FF] transition-colors dark:bg-[#141D2F]`}>{children}</body>
     </html>
   );
 }
