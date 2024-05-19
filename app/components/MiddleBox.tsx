@@ -2,7 +2,7 @@ import { tGithubJSON1 } from '../_lib/types';
 
 export default function MiddleBox({ state }: { state: tGithubJSON1 }) {
   return (
-    <div className="mt-[32px] flex h-[85px]  justify-between rounded-[10px] bg-[#F6F8FF] pl-[26px] pr-[102px] pt-[15px] transition-colors dark:bg-[#141D2F]">
+    <div className="mt-[32px] flex h-[85px] justify-around rounded-[10px] bg-[#F6F8FF] pt-[15px] transition-colors dark:bg-[#141D2F] sm:pr-[96px] md:justify-between md:pl-[32px] md:pr-[83px]">
       {[
         { title: 'Repos', description: state.public_repos },
         {
