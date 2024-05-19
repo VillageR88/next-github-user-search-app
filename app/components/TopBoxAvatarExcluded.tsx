@@ -2,7 +2,7 @@ import { tGithubJSON1 } from '../_lib/types';
 
 export default function TopBoxAvatarExcluded({ state }: { state: tGithubJSON1 }) {
   return (
-    <div className="flex flex-col md:flex-row md:justify-between">
+    <div className="flex w-full flex-col md:flex-row md:justify-between">
       <div className="flex flex-col">
         <span className="text-[26px] font-bold text-[#2B3442] transition-colors dark:text-[#FFFFFF]">
           {state.name ? state.name : state.login}

@@ -43,7 +43,7 @@ export default function Main() {
           </button>
         </div>
       </search>
-      <div className="flex min-h-[419px] w-full gap-[37px] rounded-[15px] bg-[#FFFFFF] p-[40px] transition-colors dark:bg-[#1E2A47] md:px-[48px] md:pt-[44px]">
+      <div className="flex min-h-[419px] w-full gap-[37px] rounded-[15px] bg-[#FFFFFF] p-[40px] transition-colors dark:bg-[#1E2A47] md:px-[48px] md:py-[44px]">
         <Avatar state={state} additionalClass="hidden md:block" />
         <div className="flex w-full flex-col">
           <div className="flex w-full flex-col">
