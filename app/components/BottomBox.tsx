@@ -5,7 +5,7 @@ import { LocationSVG, TwitterSvg, WebsiteSvg, CompanySvg } from '@/app/component
 
 export default function BottomBox({ state }: { state: tGithubJSON1 }) {
   return (
-    <div className="grid gap-x-[62px] gap-y-[19px] pt-[37px] sm:grid-cols-2">
+    <div className="grid gap-x-[62px] gap-y-[19px] pt-[24px] text-[13px] sm:grid-cols-2 sm:pt-[37px] sm:text-[15px]">
       <BottomRows
         disabled={state.location === null || state.location === ''}
         Svg={LocationSVG}
