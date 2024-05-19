@@ -74,7 +74,7 @@ export default function Main() {
               {state.bio ? state.bio : 'This profile has no bio'}
             </span>
           </div>
-          <div className="mt-[32px] flex h-[85px] w-[480px] justify-between rounded-[10px] bg-[#F6F8FF] pl-[26px] pr-[102px] pt-[15px] transition-colors dark:bg-[#141D2F]">
+          <div className="mt-[32px] flex h-[85px]  justify-between rounded-[10px] bg-[#F6F8FF] pl-[26px] pr-[102px] pt-[15px] transition-colors dark:bg-[#141D2F]">
             {[
               { title: 'Repos', description: state.public_repos },
               {
