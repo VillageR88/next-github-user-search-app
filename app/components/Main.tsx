@@ -29,7 +29,7 @@ export default function Main() {
           <input
             name="search"
             id="search"
-            className="size-full bg-transparent pl-[24px] text-[13px] leading-[25px] text-[#222731] caret-[#0079FF] outline-none transition placeholder:text-[#4B6A9B] dark:text-[#FFFFFF] dark:placeholder:text-[#FFFFFF] sm:min-w-[254px] sm:text-[18px]"
+            className="size-full bg-transparent pl-[9px] text-[13px] leading-[25px] text-[#222731] caret-[#0079FF] outline-none transition placeholder:text-[#4B6A9B] dark:text-[#FFFFFF] dark:placeholder:text-[#FFFFFF] sm:min-w-[254px] sm:pl-[24px] sm:text-[18px]"
             placeholder="Search GitHub username…"
             type="text"
             minLength={1}
@@ -39,7 +39,7 @@ export default function Main() {
         <div className="flex min-w-fit items-center gap-[24px]">
           <span className={`${state.error ? '' : 'hidden'} min-w-fit font-bold text-[#F74646]`}>No results</span>
           <button
-            className="h-[50px] min-w-[106px] rounded-[10px] bg-[#0079FF] text-[14px] font-bold text-[#FFFFFF] transition-colors hover:bg-[#60ABFF] sm:text-[16px]"
+            className="h-[50px] min-w-[84px] rounded-[10px] bg-[#0079FF] text-[14px] font-bold text-[#FFFFFF] transition-colors hover:bg-[#60ABFF] sm:min-w-[106px] sm:text-[16px]"
             type="submit"
           >
             Search
