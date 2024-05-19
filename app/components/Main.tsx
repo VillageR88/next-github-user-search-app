@@ -26,7 +26,7 @@ export default function Main() {
           <input
             name="search"
             id="search"
-            className="size-full min-w-[254px] bg-transparent pl-[24px] text-[18px] leading-[25px] text-[#222731] caret-[#0079FF] outline-none transition placeholder:text-[#4B6A9B] dark:text-[#FFFFFF] dark:placeholder:text-[#FFFFFF]"
+            className="size-full bg-transparent pl-[24px] text-[18px] leading-[25px] text-[#222731] caret-[#0079FF] outline-none transition placeholder:text-[#4B6A9B] dark:text-[#FFFFFF] dark:placeholder:text-[#FFFFFF] sm:min-w-[254px]"
             placeholder="Search GitHub username…"
             type="text"
             minLength={1}
