@@ -4,12 +4,10 @@ import { useFormState } from 'react-dom';
 import { createInvoice } from '../_lib/functionsServer';
 import Image from 'next/image';
 import type { tGithubJSON1 } from '@/app/_lib/types';
-import { LocationSVG, TwitterSvg, WebsiteSvg, CompanySvg } from '@/app/components/SvgComponents';
 import { octocat } from '../_lib/octocat';
-import BottomRows from './BottomRows';
+import BottomBox from './BottomBox';
 
 export default function Main() {
-  const notAvailable = 'Not Available';
   const [state, action] = useFormState<tGithubJSON1, FormData>(createInvoice, octocat);
   //console.log(state);
   return (
@@ -94,32 +92,7 @@ export default function Main() {
               </div>
             ))}
           </div>
-          <div className="grid grid-cols-2 gap-x-[62px] gap-y-[19px] pb-[48px] pt-[37px]">
-            <BottomRows
-              disabled={state.location === null || state.location === ''}
-              Svg={LocationSVG}
-              description={state.location ? state.location : notAvailable}
-              title="Location"
-            />
-            <BottomRows
-              disabled={state.twitter_username === null || state.twitter_username === ''}
-              Svg={TwitterSvg}
-              description={state.twitter_username ? state.twitter_username : notAvailable}
-              title="Twitter"
-            />
-            <BottomRows
-              disabled={state.blog === null || state.blog === ''}
-              Svg={WebsiteSvg}
-              description={state.blog ? state.blog : notAvailable}
-              title="Website"
-            />
-            <BottomRows
-              disabled={state.company === null || state.company === ''}
-              Svg={CompanySvg}
-              description={state.company ? state.company : notAvailable}
-              title="Company"
-            />
-          </div>
+          <BottomBox state={state} />
         </div>
       </div>
     </form>
