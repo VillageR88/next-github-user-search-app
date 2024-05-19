@@ -9,7 +9,7 @@ const BottomRows = ({
   disabled: boolean;
   title: string;
 }) =>
-  title === 'Company' && !description.startsWith('@') ? (
+  title === 'Company' && !disabled && !description.startsWith('@') ? (
     <div className="flex cursor-default gap-[16px] fill-[#4b6a9b] text-left text-[#4b6a9b] transition-colors dark:fill-[#FFFFFF] dark:text-[#FFFFFF]">
       <Svg />
       <span className="max-w-full break-words">{description}</span>
