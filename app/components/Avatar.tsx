@@ -5,7 +5,7 @@ export default function Avatar({ state, additionalClass }: { state: tGithubJSON1
   return (
     <Image
       priority
-      className={`${additionalClass} size-[117px] rounded-full`}
+      className={`${additionalClass} size-[97px] rounded-full sm:size-[117px]`}
       height={117}
       width={117}
       alt="avatar"
